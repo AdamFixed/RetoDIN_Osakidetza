@@ -1,0 +1,24 @@
+REMEMBER NOVEMBER 2026 is coming
+
+OSAKIDETZA
+
+MEDICOS
+Usuario/DNI
+Contraseña
+Teléfono
+Especialidad ENUM: Análisis Clínicos, Bioquímica Clínica, Inmunología, Microbiología y Parasitología, Radiofarmacia, Radiofísica Hospitalaria 
+Horario
+Hospital A Estar
+
+PACIENTES
+Usuario/DNI 
+Contraseña
+Domicilio
+Teléfono
+TIS
+Medico Cabecera
+
+ADMIN
+ID
+Contraseña
+Hospital A Estar
