@@ -13,11 +13,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import com.din.retodin_osakidetza.Dao.impOsakidetza;
+import com.din.retodin_osakidetza.Dao.ImpOsakidetza;
 import com.din.retodin_osakidetza.Modelo.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -26,8 +27,8 @@ import javafx.event.ActionEvent;
  */
 public class LoginController implements Initializable {
 
-    OsakidetzaDao dao = new impOsakidetza();
-    ArrayList<Persona> personas = impOsakidetza.llenarDatos();
+    OsakidetzaDao dao = new ImpOsakidetza();
+    ArrayList<Persona> personas = ImpOsakidetza.llenarDatos();
 
     @FXML
     private TextField usuario;
@@ -35,6 +36,8 @@ public class LoginController implements Initializable {
     private PasswordField contrasena;
     @FXML
     private Button primaryButton;
+    @FXML
+    private Label error;
 
     /**
      * Initializes the controller class.
@@ -42,10 +45,12 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        error.setVisible(false);
     }
 
     @FXML
     public void login(ActionEvent ev) {
+        boolean correcto = true;
         boolean encontrado = false;
         String user = usuario.getText();
         String pswrd = contrasena.getText();
@@ -55,7 +60,8 @@ public class LoginController implements Initializable {
                 logeado = personas.get(i);
             }
         }
-        try {
+        if(encontrado){
+                    try {
             if (logeado instanceof Usuario) {
                 App.setRoot("usuario");
             } else if (logeado instanceof Medico) {
@@ -66,6 +72,13 @@ public class LoginController implements Initializable {
         } catch (IOException ex) {
             System.getLogger(LoginController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
+        }else{
+            correcto = false;
+        }
+        if(!correcto){
+            error.setVisible(true);
+        }
+
     }
 
 }
