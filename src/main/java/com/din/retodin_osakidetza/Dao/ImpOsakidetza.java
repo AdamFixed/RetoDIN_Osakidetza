@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author asola
  */
-public class ImpOsakidetza implements OsakidetzaDao{
+public class ImpOsakidetza implements OsakidetzaDao {
 
     public static ArrayList<Persona> llenarDatos() {
         ArrayList<Persona> listaPersonas = new ArrayList<>();
@@ -21,12 +21,12 @@ public class ImpOsakidetza implements OsakidetzaDao{
 
         ArrayList<String> citasU1 = new ArrayList<>();
         citasU1.add("2026-10-10 10:00 - Consulta General");
-        Usuario usuario1 = new Usuario("jperez", "userpass1", 611222333, citasU1, "Calle Mayor 12", "SS-12345678");
+        Usuario usuario1 = new Usuario("jperez", "userpass1", 611222333, "Jorge", "Pérez", citasU1, "Calle Mayor 12", "SS-12345678");
 
-        Usuario usuario2 = new Usuario("mgarcia", "userpass2", 622333444, new ArrayList<>(), "Avenida del Sol 45", "SS-87654321");
+        Usuario usuario2 = new Usuario("mgarcia", "userpass2", 622333444, "María", "García", new ArrayList<>(), "Avenida del Sol 45", "SS-87654321");
 
-        Medico medico1 = new Medico("dr_smith", "medico123", 633444555, "Cardiología", 102, "Mañanas (08:00 - 15:00)");
-        Medico medico2 = new Medico("dra_lopez", "medico456", 644555666, "Pediatría", 205, "Tardes (15:00 - 22:00)");
+        Medico medico1 = new Medico("dr_smith", "medico123", 633444555, "John", "Smith", "Cardiología", 102, "Mañanas (08:00 - 15:00)");
+        Medico medico2 = new Medico("dra_lopez", "medico456", 644555666, "Leire", "López", "Pediatría", 205, "Tardes (15:00 - 22:00)");
 
         listaPersonas.add(admin1);
         listaPersonas.add(admin2);

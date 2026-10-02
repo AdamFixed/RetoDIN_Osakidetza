@@ -9,6 +9,7 @@ package com.din.retodin_osakidetza.Modelo;
  * @author asola
  */
 public abstract class Persona {
+
     private String user;
     private String contrasena;
     private int telefono;
@@ -36,7 +37,7 @@ public abstract class Persona {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
+
     public Persona() {
     }
 
@@ -46,5 +47,5 @@ public abstract class Persona {
         this.contrasena = contrasena;
         this.telefono = telefono;
     }
-    
+
 }

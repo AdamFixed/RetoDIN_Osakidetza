@@ -29,6 +29,7 @@ public class LoginController implements Initializable {
 
     OsakidetzaDao dao = new ImpOsakidetza();
     ArrayList<Persona> personas = ImpOsakidetza.llenarDatos();
+    public static Persona usuarioLogeado;
 
     @FXML
     private TextField usuario;
@@ -41,6 +42,8 @@ public class LoginController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,37 +51,33 @@ public class LoginController implements Initializable {
         error.setVisible(false);
     }
 
-    @FXML
+@FXML
     public void login(ActionEvent ev) {
-        boolean correcto = true;
         boolean encontrado = false;
         String user = usuario.getText();
         String pswrd = contrasena.getText();
-        Persona logeado = null;
+        
         for (int i = 0; i < personas.size() && !encontrado; i++) {
             if (personas.get(i).getUser().equals(user) && personas.get(i).getContrasena().equals(pswrd)) {
-                logeado = personas.get(i);
+                usuarioLogeado = personas.get(i);
+                encontrado = true;
             }
         }
-        if(encontrado){
-                    try {
-            if (logeado instanceof Usuario) {
-                App.setRoot("usuario");
-            } else if (logeado instanceof Medico) {
-                App.setRoot("medico");
-            } else if (logeado instanceof Admin){
-                App.setRoot("admin");
+        
+        if (encontrado) {            
+            try {
+                if (usuarioLogeado instanceof Usuario) {
+                    App.setRoot("usuario");
+                } else if (usuarioLogeado instanceof Medico) {
+                    App.setRoot("medico");
+                } else if (usuarioLogeado instanceof Admin) {
+                    App.setRoot("admin");
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
-        } catch (IOException ex) {
-            System.getLogger(LoginController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
-        }else{
-            correcto = false;
-        }
-        if(!correcto){
+        } else {
             error.setVisible(true);
         }
-
     }
-
 }

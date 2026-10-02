@@ -9,6 +9,7 @@ package com.din.retodin_osakidetza.Modelo;
  * @author asola
  */
 public class Admin extends Persona {
+
     private int idAdmin;
 
     public Admin() {
@@ -27,6 +28,5 @@ public class Admin extends Persona {
     public void setIdAdmin(int idAdmin) {
         this.idAdmin = idAdmin;
     }
-    
-    
+
 }

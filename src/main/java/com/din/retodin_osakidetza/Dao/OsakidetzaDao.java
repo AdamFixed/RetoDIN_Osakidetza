@@ -12,5 +12,5 @@ import java.util.ArrayList;
  * @author asola
  */
 public interface OsakidetzaDao {
-    
+
 }
