@@ -185,7 +185,6 @@ public class InforamcionController implements Initializable {
         if (seleccionado instanceof Medico) {
             medico = (Medico) seleccionado;
             if (!tfNombre.getText().equals("")) {
-                medico.setNombre(tfNombre.getText());
                 System.out.println(medico.getNombre());
             }
             if (!tfApellido.getText().equals("")) {
