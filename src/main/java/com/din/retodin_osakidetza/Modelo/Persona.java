@@ -12,7 +12,25 @@ public abstract class Persona {
 
     private String user;
     private String contrasena;
+    private String nombre;
+    private String apellidos;
     private int telefono;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
 
     public String getUser() {
         return user;
@@ -41,10 +59,11 @@ public abstract class Persona {
     public Persona() {
     }
 
-    // Constructor parametrizado
-    public Persona(String user, String contrasena, int telefono) {
+    public Persona(String user, String contrasena, String nombre, String apellidos, int telefono) {
         this.user = user;
         this.contrasena = contrasena;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
         this.telefono = telefono;
     }
 

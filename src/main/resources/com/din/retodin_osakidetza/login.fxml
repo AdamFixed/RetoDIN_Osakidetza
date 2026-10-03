@@ -32,8 +32,6 @@
             <TextField fx:id="usuario" prefHeight="35.0" promptText="Introduce tu usuario" />
          </children>
       </VBox>
-      
-      <!-- Contenedor de la Contraseña -->
       <VBox alignment="CENTER_LEFT" maxWidth="300.0" spacing="8.0">
          <children>
             <Label text="Contraseña">

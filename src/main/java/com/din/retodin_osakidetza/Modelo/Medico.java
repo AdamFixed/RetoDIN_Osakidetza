@@ -10,53 +10,22 @@ package com.din.retodin_osakidetza.Modelo;
  */
 public class Medico extends Persona {
 
-    private String nombre;
-    private String apellidos;
     private String especialidad;
     private int numeroDeSala;
     private String horario;
 
-    public Medico(String nombre, String apellidos, String especialidad, int numeroDeSala, String horario) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.especialidad = especialidad;
-        this.numeroDeSala = numeroDeSala;
-        this.horario = horario;
-    }
-
     public Medico() {
         super();
-        this.nombre = "";
-        this.apellidos = "";
-        this.especialidad = "";
-        this.numeroDeSala = 0;
-        this.horario = "";
     }
 
-    public Medico(String user, String contrasena, int telefono, String nombre, String apellidos, String especialidad, int numeroDeSala, String horario) {
-        super(user, contrasena, telefono);
-        this.nombre = nombre;
-        this.apellidos = apellidos;
+    public Medico(String especialidad, int numeroDeSala, String horario, String user, String contrasena, String nombre, String apellidos, int telefono) {
+        super(user, contrasena, nombre, apellidos, telefono);
         this.especialidad = especialidad;
         this.numeroDeSala = numeroDeSala;
         this.horario = horario;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
+    
 
     public String getEspecialidad() {
         return especialidad;

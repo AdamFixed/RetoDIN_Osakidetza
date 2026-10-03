@@ -16,10 +16,12 @@ public class Admin extends Persona {
         super();
     }
 
-    public Admin(String user, String contrasena, int telefono, int idAdmin) {
-        super(user, contrasena, telefono);
+    public Admin(int idAdmin, String user, String contrasena, String nombre, String apellidos, int telefono) {
+        super(user, contrasena, nombre, apellidos, telefono);
         this.idAdmin = idAdmin;
     }
+
+   
 
     public int getIdAdmin() {
         return idAdmin;

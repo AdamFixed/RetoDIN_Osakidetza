@@ -12,5 +12,9 @@ import java.util.ArrayList;
  * @author asola
  */
 public interface OsakidetzaDao {
-
+    
+    public ArrayList<Persona> fillData();
+    public Persona buscar(String user, String contrasena, ArrayList<Persona> personas);
+    public ArrayList<Persona> actualizar(Persona persona, String nombre, String Apellido, ArrayList<Persona> personas);
+    
 }

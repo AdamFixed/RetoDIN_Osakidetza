@@ -28,8 +28,10 @@ import javafx.scene.control.Label;
 public class LoginController implements Initializable {
 
     OsakidetzaDao dao = new ImpOsakidetza();
-    ArrayList<Persona> personas = ImpOsakidetza.llenarDatos();
-    public static Persona usuarioLogeado;
+
+    public static Persona usuarioLogeado = null;
+
+    public static ArrayList<Persona> personas;
 
     @FXML
     private TextField usuario;
@@ -42,37 +44,27 @@ public class LoginController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        if (InforamcionController.personas == null) {
+            personas = dao.fillData();
+        } else {
+            personas = InforamcionController.personas;
+        }
         error.setVisible(false);
     }
 
-@FXML
+    @FXML
     public void login(ActionEvent ev) {
-        boolean encontrado = false;
-        String user = usuario.getText();
-        String pswrd = contrasena.getText();
-        
-        for (int i = 0; i < personas.size() && !encontrado; i++) {
-            if (personas.get(i).getUser().equals(user) && personas.get(i).getContrasena().equals(pswrd)) {
-                usuarioLogeado = personas.get(i);
-                encontrado = true;
-            }
-        }
-        
-        if (encontrado) {            
+       usuarioLogeado = dao.buscar(usuario.getText(), contrasena.getText(), personas);
+        if (usuarioLogeado!=null) {
             try {
-                if (usuarioLogeado instanceof Usuario) {
-                    App.setRoot("usuario");
-                } else if (usuarioLogeado instanceof Medico) {
-                    App.setRoot("medico");
-                } else if (usuarioLogeado instanceof Admin) {
-                    App.setRoot("admin");
-                }
+                App.setRoot("inforamcion");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
