@@ -5,7 +5,8 @@
 package com.din.retodin_osakidetza.Modelo;
 
 /**
- *
+ * Clase que representa a un administrador en el sistema.
+ * 
  * @author asola
  */
 public class Admin extends Persona {
@@ -22,11 +23,19 @@ public class Admin extends Persona {
     }
 
    
-
+    /**
+     * Coge el ID del aadministrador.
+     *
+     * @return El ID del administrador.
+     */
     public int getIdAdmin() {
         return idAdmin;
     }
-
+    /**
+     * Establece el ID del administrador.
+     *
+     * @param idAdmin El ID del administrador a establecer.
+     */
     public void setIdAdmin(int idAdmin) {
         this.idAdmin = idAdmin;
     }

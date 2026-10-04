@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="AnchorPane" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.din.retodin_osakidetza.Controller.InforamcionController">
+<BorderPane id="AnchorPane" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.din.retodin_osakidetza.Controller.InformacionController">
    <top>
       <Label fx:id="bienvenido" text="BIENVENIDO : " BorderPane.alignment="CENTER">
          <font>

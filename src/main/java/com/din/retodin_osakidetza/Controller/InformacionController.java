@@ -29,7 +29,7 @@ import javafx.scene.layout.VBox;
  *
  * @author asola
  */
-public class InforamcionController implements Initializable {
+public class InformacionController implements Initializable {
 
     OsakidetzaDao dao = new ImpOsakidetza();
 
@@ -81,8 +81,8 @@ public class InforamcionController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url url
+     * @param rb resoruce bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -111,7 +111,9 @@ public class InforamcionController implements Initializable {
             });
         }
     }
-
+    /**
+     * Carga los datos de los usuarios en las listas correspondientes según el tipo de usuario logeado.
+     */
     private void cargarDatos() {
         if (usuario instanceof Paciente) {
             medicos.setVisible(false);
@@ -157,7 +159,10 @@ public class InforamcionController implements Initializable {
             }
         });
     }
-
+    /**
+     * Muestra los datos del médico seleccionado.
+     * @param m El médico cuyos datos se van a mostrar.
+     */
     private void mostrarDatosMedico(Medico m) {
         editar.setVisible(true);
         lblNombre.setText("Nombre: " + m.getNombre());
@@ -167,6 +172,10 @@ public class InforamcionController implements Initializable {
         lblDato2.setText("Horario: " + m.getHorario());
     }
 
+    /**
+     * Muestra los datos del paciente seleccionado.
+     * @param u El paciente cuyos datos se van a mostrar.
+     */
     private void mostrarDatosPaciente(Paciente u) {
         editar.setVisible(true);
         lblNombre.setText("Nombre: " + u.getNombre());
@@ -177,7 +186,9 @@ public class InforamcionController implements Initializable {
         tfDato2.setVisible(false);
 
     }
-
+    /**
+     * Guarda los cambios realizados en los datos del usuario seleccionado.
+     */
     @FXML
     public void guardar() {
         Paciente paciente = null;
@@ -231,12 +242,15 @@ public class InforamcionController implements Initializable {
         editar.setVisible(false);
     }
 
+    /**
+     * Cierra la sesión del usuario actual.
+     */
     @FXML
     public void logOut() {
         try {
             App.setRoot("login");
         } catch (IOException ex) {
-            System.getLogger(InforamcionController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            System.getLogger(InformacionController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }
 }

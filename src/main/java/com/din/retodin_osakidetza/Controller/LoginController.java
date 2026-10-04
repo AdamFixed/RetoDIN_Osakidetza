@@ -45,20 +45,24 @@ public class LoginController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url url
+     * @param rb resoruce bundle
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        if (InforamcionController.personas == null) {
+        if (InformacionController.personas == null) {
             personas = dao.fillData();
         } else {
-            personas = InforamcionController.personas;
+            personas = InformacionController.personas;
         }
         error.setVisible(false);
     }
-
+    /**
+     * Maneja el evento de inicio de sesión. Verifica las credenciales del usuario y, si son correctas, cambia la vista a la pantalla de información.
+     *
+     * @param ev El evento de acción que desencadena el inicio de sesión.
+     */
     @FXML
     public void login(ActionEvent ev) {
        usuarioLogeado = dao.buscar(usuario.getText(), contrasena.getText(), personas);
